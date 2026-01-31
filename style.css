@@ -1,78 +1,48 @@
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    color: #333;
-
-    /* Background trắng - đỏ */
-    background: linear-gradient(
-        135deg,
-        #ff4d4d 0%,
-        #ff8080 30%,
-        #ffffff 100%
-    );
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    overflow: hidden;
+    color: white;
+    text-align: center;
 }
 
-/* ===== Khung nội dung ===== */
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    background-color: #ffffff;
-    padding: 30px 35px;
-    border-radius: 12px;
-
-    /* Đổ bóng nhẹ */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+/* Mỗi cảnh như 1 slide video */
+.scene {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    padding: 20px;
+    animation: fade 6s forwards;
 }
 
-/* ===== Tiêu đề ===== */
+/* Thời gian chuyển cảnh */
+.scene:nth-child(2) { animation-delay: 0s; }
+.scene:nth-child(3) { animation-delay: 6s; }
+.scene:nth-child(4) { animation-delay: 12s; }
+.scene:nth-child(5) { animation-delay: 18s; }
+.scene:nth-child(6) { animation-delay: 24s; }
+
+@keyframes fade {
+    0% {opacity: 0; transform: translateY(20px);}
+    10% {opacity: 1; transform: translateY(0);}
+    90% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
 h1 {
-    color: #d60000;
-    text-align: center;
-    margin-bottom: 10px;
+    font-size: 42px;
+    margin-bottom: 15px;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-h2 {
-    color: #b30000;
-    margin-top: 25px;
-    border-left: 5px solid #ff4d4d;
-    padding-left: 10px;
-}
-
-/* ===== Danh sách ===== */
-ul {
-    list-style-type: disc;
-    margin-left: 25px;
-}
-
-/* ===== Link ===== */
-a {
-    color: #d60000;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-/* ===== Footer ===== */
-footer {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 0.9em;
-    color: #999;
-}
-
-/* ===== Ảnh đại diện ===== */
-.avatar {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto 25px;
-
-    border: 4px solid #ff4d4d;
-    box-shadow: 0 6px 15px rgba(255, 77, 77, 0.4);
+p {
+    font-size: 22px;
+    max-width: 800px;
+    line-height: 1.6;
 }
